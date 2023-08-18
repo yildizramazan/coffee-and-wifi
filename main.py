@@ -4,17 +4,6 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired, URL
 import csv
-# import pandas
-#
-# cafe_data = pandas.read_csv("cafe-data.csv")
-# cafe_names = cafe_data["Cafe Name"].to_list()
-# locations = cafe_data["Location"].to_list()
-# opening_hours = cafe_data["Open"].to_list()
-# closing_hours = cafe_data["Close"].to_list()
-# coffees = cafe_data["Coffee"].to_list()
-# wifi_s = cafe_data["Wifi"].to_list()
-# powers = cafe_data["Power"].to_list()
-
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
@@ -31,16 +20,7 @@ class CafeForm(FlaskForm):
     power_rating = SelectField('Power Strength Rating', choices=(" ", "🔌", "🔌🔌", "🔌🔌🔌", "🔌🔌🔌🔌", "🔌🔌🔌🔌🔌"))
     submit = SubmitField('Submit')
 
-# Exercise:
-# add: Location URL, open time, closing time, coffee rating, wifi rating, power outlet rating fields
-# make coffee/wifi/power a select element with choice of 0 to 5.
-#e.g. You could use emojis ☕️/💪/✘/🔌
-# make all fields required except submit
-# use a validator to check that the URL field has a URL entered.
-# ---------------------------------------------------------------------------
 
-
-# all Flask routes below
 @app.route("/")
 def home():
     return render_template("index.html")
